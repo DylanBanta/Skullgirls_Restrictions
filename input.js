@@ -1,44 +1,103 @@
-var p1cc_0 = document.getElementById("p1_cc_0");
-var p1cc_1 = document.getElementById("p1_cc_1");
+var characters = ["Squiggly", "Big Band", "Eliza", "Ms. Fortune", "Peacock", "Painwheel", "Filia", "Cerebella", "Valentine", "Parasoul", "Double", "Fukua", "Beowulf", "Robo Fortune"];
 
-var p1nrc_char1 = document.getElementById("p1nrc_char1");
-var p1nrc_char2 = document.getElementById("p1nrc_char2");
-var p1nrc_char3 = document.getElementById("p1nrc_char3");
+function getSelectedIndex(list){
+  return list.prop("selectedIndex");
+}
 
-function p1cc_radio(value){
-  if(value == null){
-    value = p1cc_0.value;
+function p1_checkDupeChars(){
+  var list1 = $("#p1_charList_1");
+  var list2 = $("#p1_charList_2");
+  var list3 = $("#p1_charList_3");
+
+  var list1Val = list1.val();
+  var list2Val = list2.val();
+  var list3Val = list3.val();
+
+  var list1Index = getSelectedIndex(list1);
+  var list2Index = getSelectedIndex(list2);
+  var list3Index = getSelectedIndex(list3);
+
+  //alert(list1Index);
+  if(list1Val == list2Val){
+    list2Index++;
+    list2.prop("selectedIndex", list2Index);
   }
 
-  if (value == 1) {
-    p1nrc_char1.hidden = false;
-    p1nrc_char2.hidden = true;
-    p1nrc_char3.hidden = true;
-  } else if (value == 2){
-    p1nrc_char1.hidden = false;
-    p1nrc_char2.hidden = false;
-    p1nrc_char3.hidden = true;
-  } else if (value == 3){
-    p1nrc_char1.hidden = false;
-    p1nrc_char2.hidden = false;
-    p1nrc_char3.hidden = false;
-  } else {
-    console.log("p1cc_radio| Error | value out of scope: " + value);
+  if(list1Val == list3Val){
+    list3Index++;
+    list3.prop("selectedIndex", list3Index);
+  }
+
+  if (list2Val == list3Val) {
+    list3Index++;
+    list3.prop("selectedIndex", list3Index);
   }
 }
 
-function p1RandChar(){ //Triggers when P1 Random Characters Checkbox changed
-  var p1 = document.getElementById("p1_randChar").checked;
-  var p1cc_hideRand = document.getElementById("p1cc_hideRandom");
-  var p1_notRandomChars = document.getElementById("p1_notRandomChars");
-  if(p1){ //when checkbox is true
-    p1_notRandomChars.hidden = true; //Hide p1_notRandomChars
-    p1cc_hideRand.hidden = false;//display Random
+function p1_selectCharList() {
+  var list1 = $("#p1_charList_1");
+  var list2 = $("#p1_charList_2");
+  var list3 = $("#p1_charList_3");
+
+  var option = '';
+  for (var i = 0; i < characters.length; i++) {
+    option += '<option value="' + characters[i] + '">' + characters[i] + '</option>';
+  }
+
+  list1.empty();
+  list2.empty();
+  list3.empty();
+
+  list1.append(option);
+  list2.append(option);
+  list3.append(option);
+
+  p1_checkDupeChars();
+}
+
+function p1cc_radio(value) {
+  var char1 = $("#p1_charList1");
+  var char2 = $("#p1_charList2");
+  var char3 = $("#p1_charList3");
+
+  if (value == null) {
+    value = $("input[name='p1cc']:checked").val();
+    console.log("p1cc_radio value | " + value);
+  }
+
+  if (value == 1) {
+    char1.show();
+    char2.hide();
+    char3.hide();
+  } else if (value == 2) {
+    char1.show();
+    char2.show();
+    char3.hide();
+  } else if (value == 3) {
+    char1.show();
+    char2.show();
+    char3.show();
+  } else {
+    console.log("p1cc_radio| Error | value out of scope: " + value);
+  }
+
+  p1_selectCharList();
+}
+
+function p1_RandChar() { //Triggers when P1 Random Characters Checkbox changed
+  var p1 = $("#p1_randChar").is(":checked"); //if checked returns true
+  var hideRand = $("#p1cc_hideRandom");
+  var charSelect = $("#p1_charSelect");
+  if (p1) { //when checkbox is true
+    charSelect.hide(); //Hide charSelect
+    hideRand.show(); //display Random
   } else { //when checkbox is false
-    p1cc_hideRand.hidden = true; //Hide Random
-    p1_cc_0.checked = false;
-    p1_cc_1.checked = true;
-    p1_notRandomChars.hidden = false; //display p1_notRandomChars
+    hideRand.hide(); //Hide Random
+    charSelect.show(); //Show char select
+    if (p1_cc_0.checked == true) {
+      p1_cc_0.checked = false;
+      p1_cc_1.checked = true;
+    }
     p1cc_radio();
   }
 }

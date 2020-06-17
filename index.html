@@ -4,7 +4,7 @@
 <head>
   <title>Skullgirls Restrictions</title>
   <link rel="stylesheet" href="master.css">
-  <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>-->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="index.js"></script>
   <script src="input.js"></script>
 </head>
@@ -14,34 +14,52 @@
     <div class="left-half">
       <article>
         <h2>Player 1</h2>
-        <div id="p1_characterCount"> <!--Number of character for player 1-->
+        <div id="p1_characterCount">
+          <!--Number of character for player 1-->
           Number of Characters |
           <span id="p1cc_hideRandom">
-            <input type="radio" name="p1cc" value="0" checked=true id="p1_cc_0" onclick="p1cc_radio"> Random
+            <input type="radio" name="p1cc" value="0" checked=true id="p1_cc_0" onclick="p1cc_radio(0)"> Random
           </span>
-          <input type="radio" name="p1cc" value="1" id="p1_cc_1"> 1
-          <input type="radio" name="p1cc" value="2" id="p1_cc_2"> 2
-          <input type="radio" name="p1cc" value="3" id="p1_cc_3"> 3
+          <input type="radio" name="p1cc" value="1" id="p1_cc_1" onclick="p1cc_radio(1)"> 1
+          <input type="radio" name="p1cc" value="2" id="p1_cc_2" onclick="p1cc_radio(2)"> 2
+          <input type="radio" name="p1cc" value="3" id="p1_cc_3" onclick="p1cc_radio(3)"> 3
         </div>
         <div id="p1_randCharacter">
-          P1 Random Characters <input type="checkbox" name="p1_randBool" id="p1_randChar" checked=true onchange="p1RandChar()">
+          P1 Random Characters <input type="checkbox" name="p1_randBool" id="p1_randChar" checked=true onchange="p1_RandChar()">
         </div>
-        <div id="p1_notRandomChars" hidden>
-          <div id="p1nrc_char1" hidden>
+        <div id="p1_charSelect" hidden>
+          <div id="p1_charList1">
             Character 1
-            <select name="p1nr_CharList" id="p1nrCharList">
+            <select name="p1_charList1" id="p1_charList_1" onclick="p1_checkDupeChars()">
+            </select>
+          </div>
+          <div id="p1_charList2" hidden>
+            Character 2
+            <select name="p1_charList2" id="p1_charList_2" onclick="p1_checkDupeChars()">
+            </select>
+          </div>
+          <div id="p1_charList3" hidden>
+            Character 3
+            <select name="p1_charList3" id="p1_charList_3" onclick="p1_checkDupeChars()">
+            </select>
+          </div>
+          <!--
+          <div id="p1nrc_char1">
+            Character 1
+            <select name="p1nr_CharList1" id="p1nrCharList_1">
             </select>
           </div>
           <div id="p1nrc_char2" hidden>
             Character 2
-            <select name="p1nr_CharList" id="p1nrCharList">
+            <select name="p1nr_CharList2" id="p1nrCharList_2">
             </select>
           </div>
           <div id="p1nrc_char3" hidden>
             Character 3
-            <select name="p1nr_CharList" id="p1nrCharList">
+            <select name="p1nr_CharList3" id="p1nrCharList_3">
             </select>
           </div>
+        -->
         </div>
       </article>
     </div>
