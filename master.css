@@ -32,6 +32,18 @@ article {
   width: 100%;
 }
 
+.trHeight{
+  height: 113px;
+}
+
+.alignTop{
+  vertical-align: top;
+}
+
+.alignBottom{
+  vertical-align: bottom;
+}
+
 .left-half {
   background-color: DodgerBlue;
   position: absolute;
@@ -44,4 +56,16 @@ article {
   position: absolute;
   right: 0px;
   width: 50%;
+}
+
+.tallSelect{
+  height: 227px;
+  width: 115px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tallTable{
+  display:inline-block;
+  height: 227px;
 }
