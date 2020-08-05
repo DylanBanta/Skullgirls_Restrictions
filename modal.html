@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <link rel="stylesheet" href="modal.css">
     </head>
 
     <body>
-        <div id="optionsModal" class="modal">
+        <!-- Trigger/Open The Modal -->
+        <button onclick="openModal()">Open Modal</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
             <div class="modal-content">
-                <span class="close">
-                </span>
+                <div class="modal-header">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2>Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the Modal Body</p>
+                    <p>Some other text...</p>
+                </div>
+                <div class="modal-footer">
+                    <h3>Modal Footer</h3>
+                </div>
             </div>
         </div>
+        <script src="modal.js"></script>
     </body>
 
 </html>
