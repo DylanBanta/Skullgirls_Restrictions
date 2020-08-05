@@ -2,87 +2,91 @@
 <html>
 
 <head>
-  <title>Skullgirls Restrictions</title>
-  <link rel="stylesheet" href="master.css">
-  <link rel="stylesheet" href="customRadioButtons.css">
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="utils.js"></script>
-  <script src="skullgirlsRestrictions.js"></script>
+    <title>Skullgirls Restrictions</title>
+    <link rel="stylesheet" href="master.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="utils.js"></script>
+    <script src="index.js"></script>
+    <script src="user_interface.js"></script>
 </head>
 
 <body>
-  <section class="container">
-    <div class="left-half">
-      <article>
-        <h2>Player 1</h2>
-        <div id="p1_characterCount">
-          <!--Number of character for player 1-->
-          Number of Characters |
-          <span id="p1cc_hideRandom">
-            <!---->
-            <label class="radio"><input type="radio" class="redBG" name="p1cc" value="0" checked=true id="p1_cc_0" onclick="pcc_radio(1,0)"> Random </label>
-          </span>
-          
-          <input type="radio" class="redBG" name="p1cc" value="1" id="p1_cc_1" onclick="pcc_radio(1,1)"> 1
-          <input type="radio" class="redBG" name="p1cc" value="2" id="p1_cc_2" onclick="pcc_radio(1,2)"> 2
-          <input type="radio" class="redBG" name="p1cc" value="3" id="p1_cc_3" onclick="pcc_radio(1,3)"> 3
-        </div>
-        <div id="p1_randCharacter">
-          P1 Random Characters <label class="switch"><input type="checkbox" name="p1_randBool" id="p1_randChar" checked=true onchange="randChar(1)"><span class="slider_redBG round"></span></label>
+    <section class="container">
+        <div class="left-half">
+            <div id="options" class="alignLeft">
+                Player 1 Only <input type="checkbox" name="options_p1Only" id="p1Only" onclick="options('p1Only')">
+                <br />
+                Share Player 1's Options <input type="checkbox" name="options_playersShare" id="playersShare">
+            </div>
+            <article>
+                <h2>Player 1<img class="settingsIcon" src="images/options.png" /></h2>
+                <div id="p1_characterCount">
+                    <!--Number of character for player 1-->
+                    Number of Characters |
+                    <span id="p1cc_hideRandom">
+                        <label class="radio"><input type="radio" name="p1cc" value="0" checked=true id="p1_cc_0" onclick="pcc_radio(1,0)"> Random </label>
+                    </span>
 
+                    <input type="radio" name="p1cc" value="1" id="p1_cc_1" onclick="pcc_radio(1,1)"> 1
+                    <input type="radio" name="p1cc" value="2" id="p1_cc_2" onclick="pcc_radio(1,2)"> 2
+                    <input type="radio" name="p1cc" value="3" id="p1_cc_3" onclick="pcc_radio(1,3)"> 3
+                </div>
+                <div id="p1_randCharacter">
+                    P1 Random <span id="p1_charGrammar">Characters</span> <label class="switch"><input type="checkbox" name="p1_randBool" id="p1_randChar" checked=true onchange="randChar(1)"><span class="slider_redBG round"></span></label>
+
+                </div>
+                <div id="p1_charSelect" hidden>
+                    Choose Your <span id="p1_charLabel">Characters</span>
+                    <br />
+                    <select class="tallSelect p1_lSelect" name="p1_left_list" id="p1_leftList" multiple="multiple">
+                    </select>
+                    <select class="tallSelect p1_rSelect" name="p1_right_list" id="p1_rightList" multiple="multiple">
+                    </select>
+                </div>
+                <div id="p1_rollDiv">
+                    <button onclick="roll(1)">
+                        Roll!
+                    </button>
+                </div>
+                <div id="p1_results">
+                    <h2>Player 1 Results</h2>
+                    <br />
+                    <div id="p1_roll">
+                    </div>
+                    <div />
+
+            </article>
         </div>
-        <div id="p1_charSelect" hidden>
-          <span id="p1_charLabel">Choose Your Character</span>
-          <br />
-          <select class="tallSelect p1_lSelect" name="p1_left_list" id="p1_leftList" multiple="multiple">
-          </select>
-          <select class="tallSelect p1_rSelect" name="p1_right_list" id="p1_rightList" multiple="multiple">
-          </select>
+
+        <!--Red/Blue Half way-->
+
+        <div class="right-half">
+            <article id="disableCheck">
+                <h2>Player 2</h2>
+                <div id="p2_characterCount">
+                    <!--Number of character for player 1-->
+                    Number of Characters |
+                    <span id="p2cc_hideRandom">
+                        <input type="radio" name="p2cc" value="0" checked=true id="p2_cc_0" onclick="pcc_radio(2,0)"> Random
+                    </span>
+                    <input type="radio" name="p2cc" value="1" id="p2_cc_1" onclick="pcc_radio(2,1)"> 1
+                    <input type="radio" name="p2cc" value="2" id="p2_cc_2" onclick="pcc_radio(2,2)"> 2
+                    <input type="radio" name="p2cc" value="3" id="p2_cc_3" onclick="pcc_radio(2,3)"> 3
+                </div>
+                <div id="p2_randCharacter">
+                    P2 Random <span id="p2_charGrammar">Characters</span> <label class="switch"><input type="checkbox" name="p2_randBool" id="p2_randChar" checked=true onchange="randChar(2)"><span class="slider_blueBG round"></span></label>
+                </div>
+                <div id="p2_charSelect" hidden>
+                    Choose Your <span id="p2_charLabel">Character</span>
+                    <br />
+                    <select class="tallSelect p2_lSelect" name="p2_left_list" id="p2_leftList" multiple="multiple">
+                    </select>
+                    <select class="tallSelect p2_rSelect" name="p2_right_list" id="p2_rightList" multiple="multiple">
+                    </select>
+                </div>
+            </article>
         </div>
-      </article>
-    </div>
-    <div class="right-half">
-      <article>
-        <h2>Player 2</h2>
-        <div id="p2_characterCount">
-          <!--Number of character for player 1-->
-          Number of Characters |
-          <span id="p2cc_hideRandom">
-            <input type="radio" class="blueBG" name="p2cc" value="0" checked=true id="p2_cc_0" onclick="pcc_radio(2,0)"> Random
-          </span>
-          <input type="radio" class="blueBG" name="p2cc" value="1" id="p2_cc_1" onclick="pcc_radio(2,1)"> 1
-          <input type="radio" class="blueBG" name="p2cc" value="2" id="p2_cc_2" onclick="pcc_radio(2,2)"> 2
-          <input type="radio" class="blueBG" name="p2cc" value="3" id="p2_cc_3" onclick="pcc_radio(2,3)"> 3
-        </div>
-        <div id="p2_randCharacter">
-          P1 Random Characters <label class="switch"><input type="checkbox" name="p2_randBool" id="p2_randChar" checked=true onchange="randChar(2)"><span class="slider_blueBG round"></span></label>
-        </div>
-        <div id="p2_charSelect" hidden>
-          <span id="p2_charLabel">Choose Your Character</span>
-          <br />
-          <select class="tallSelect p2_lSelect" name="p2_left_list" id="p2_leftList" multiple="multiple">
-          </select>
-          <select class="tallSelect p2_rSelect" name="p2_right_list" id="p2_rightList" multiple="multiple">
-          </select>
-        </div>
-      </article>
-    </div>
-  </section>
+    </section>
 </body>
 
 </html>
-
-<!--
-  <table class="tallTable">
-    <tr class="trHeight">
-      <td class="alignBottom">
-        <button type="button" name="moveRightBtn">>></button>
-      </td>
-    </tr>
-    <tr class="trHeight alignTop">
-      <td class="alignTop">
-        <button type="button" name="moveLeftBtn"><<</button>
-      </td>
-    </tr>
-  </table>
--->

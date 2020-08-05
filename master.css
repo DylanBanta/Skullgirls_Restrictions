@@ -28,6 +28,10 @@ article {
   padding: 20px;
 }
 
+.settingsIcon{
+  padding-bottom: 20px;
+}
+
 /* Pattern styles */
 .container {
   display: table;
@@ -36,6 +40,11 @@ article {
 
 .trHeight{
   height: 113px;
+}
+
+.alignLeft{
+  text-align: left;
+  padding-left: 5px;
 }
 
 .alignTop{
@@ -79,14 +88,6 @@ article {
   width: 30px;
   height: 17px;
   top: 7px;
-}
-
-.redBG {
-  color: FireBrick;
-}
-
-.blueBG {
-  background-color: DodgerBlue;
 }
 
 .switch input {
