@@ -86,12 +86,14 @@ function buildCollapseContent(dataArr) {
   var inputString = "";
   var contentString = "";
   var currentString;
+  var chckbxCode;
   for (var i = 0; i < dataArr.length; i++) {
     currentString = dataArr[i];
-    inputString = currentString + " <input type='checkbox' name='" + dataArr[i] + "' checked='true'<br />";
+    chckbxCode = " <input type='checkbox' name='name' checked='true'>"
+    inputString = currentString + chckbxCode + "<br/>";
     contentString += inputString + "\n";
   }
-  console.log(contentString);
+  console.log("contentString | " + contentString);
   return contentString;
 }
 
@@ -106,10 +108,10 @@ function buildSettings() {
     currentSettings = [];
     for (var j = 0; j < allSettings[i].length; j++) {
       currentSettings.push(allSettings[i][j]);
-      console.log(settingsTitles[i] + " | " + allSettings[i][j]);
+      //console.log(settingsTitles[i] + " | " + allSettings[i][j]);
     }
     content = buildCollapseContent(currentSettings);
-    cards.push(buildCards(settingsTitles[i], currentSettings, i));
+    cards.push(buildCards(settingsTitles[i], content, i));
   }
 
   buildAccordion(cards);

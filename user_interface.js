@@ -13,6 +13,10 @@ function options(option) {
   }
 }
 
+function saveSettingsToFile() {
+  saveDataToFile("Test Data", "test", "txt");
+}
+
 function pcc_radio(player, value) {
   var char1;
   var char2;
@@ -94,6 +98,7 @@ async function onPageLoad() {
   await sleep(5);
   appendData($("#p1_leftList"), p1_option);
   appendData($("#p2_leftList"), p2_option);
+  buildSettings();
 }
 onPageLoad();
 
