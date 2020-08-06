@@ -1,23 +1,6 @@
 * {
   box-sizing: border-box;
 }
-body {
-  font-size: 1.25rem;
-  font-family: sans-serif;
-  line-height: 150%;
-  text-shadow: 0 2px 2px black;
-  margin-top: 0px;
-}
-
-section {
-  color: #fff;
-  text-align: center;
-  height: 100%;
-}
-
-div {
-  height: 100%;
-}
 
 article {
   position: absolute;
@@ -28,12 +11,19 @@ article {
   padding: 20px;
 }
 
+.settings{
+  padding-bottom: 20px;
+}
+
 .settingsIcon{
   padding-bottom: 20px;
 }
 
 /* Pattern styles */
 .container {
+  color: #fff;
+  text-align: center;
+  height: 100%;
   display: table;
   width: 100%;
 }
@@ -60,6 +50,7 @@ article {
   position: absolute;
   left: 0px;
   width: 50%;
+  height: 100%;
 }
 
 .right-half {
@@ -67,6 +58,7 @@ article {
   position: absolute;
   right: 0px;
   width: 50%;
+  height: 100%;
 }
 
 .tallSelect{

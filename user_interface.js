@@ -97,6 +97,7 @@ async function onPageLoad() {
 }
 onPageLoad();
 
+
 function moveSelectOptions(player, movedItem, direction) {
   //console.log(player, movedItem, direction);
   var lList;
