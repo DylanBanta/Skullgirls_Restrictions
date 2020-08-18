@@ -14,8 +14,6 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="utils.js"></script>
         <script src="index.js"></script>
-        <script src="user_interface.js"></script>
-        <script src="challenges.js"></script>
         <script src="file_saver.js"></script>
     </head>
 
@@ -72,7 +70,7 @@
                         P1 Random <span id="p1_charGrammar">Characters</span> <label class="switch"><input type="checkbox" name="p1_randBool" id="p1_randChar" checked=true onchange="randChar(1)"><span class="slider_redBG round"></span></label>
 
                     </div>
-                    <div id="p1_charSelect" hidden>
+                    <div id="p1_charSelect">
                         Choose Your <span id="p1_charLabel">Characters</span>
                         <br />
                         <select class="tallSelect p1_lSelect" name="p1_left_list" id="p1_leftList" multiple="multiple">
@@ -112,7 +110,7 @@
                     <div id="p2_randCharacter">
                         P2 Random <span id="p2_charGrammar">Characters</span> <label class="switch"><input type="checkbox" name="p2_randBool" id="p2_randChar" checked=true onchange="randChar(2)"><span class="slider_blueBG round"></span></label>
                     </div>
-                    <div id="p2_charSelect" hidden>
+                    <div id="p2_charSelect">
                         Choose Your <span id="p2_charLabel">Character</span>
                         <br />
                         <select class="tallSelect p2_lSelect" name="p2_left_list" id="p2_leftList" multiple="multiple">

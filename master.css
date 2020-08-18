@@ -62,7 +62,7 @@ article {
 }
 
 .tallSelect{
-  height: 227px;
+  height: 313px;
   width: 115px;
   border-radius: 8px;
   overflow: hidden;
@@ -181,4 +181,12 @@ input:checked + .slider_blueBG:before {
 
 .slider_blueBG.round:before {
   border-radius: 100%;
+}
+
+#p1_charSelect {
+  display:none;
+}
+
+#p2_charSelect {
+  display:none;
 }
